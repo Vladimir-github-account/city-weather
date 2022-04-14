@@ -2,27 +2,19 @@ import React, {FC} from 'react';
 import {IWeatherResponse} from "../types/weather";
 
 interface WeatherItemProps {
-    weatherResponse: IWeatherResponse,
+    weatherResponse: any,
 }
 
 const WeatherItem: FC<WeatherItemProps> = ({weatherResponse}) => {
     const {
-        name,
-        clouds,
-        id,
-        main,
-        cod,
-        wind,
-        coord,
-        weather,
-        sys
+      lat, lon, current
     } = weatherResponse;
     return (
         <div>
             <p>
-                {`City ${name}, temperature ${main?.temp} ${weather?.[0].description}`}
+                {`City , temperature ${current?.temp}`}
             </p>
-            <p>Coordinates {sys?.country} {coord?.lon} {coord?.lat}</p>
+            <p>Coordinates {lat} {lon}</p>
         </div>
     );
 };
