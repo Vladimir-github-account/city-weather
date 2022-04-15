@@ -1,15 +1,13 @@
-import React, {FC, useState, useEffect} from 'react';
+import React, {FC} from 'react';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 
-
 interface InputProps {
-    handleChange: any,
-    value: string
+    handleChange: any
 }
 
-const Input: FC<InputProps> = ({handleChange, value}) => {
+const Input: FC<InputProps> = ({handleChange}) => {
     return (
         <div>
           <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
@@ -17,10 +15,8 @@ const Input: FC<InputProps> = ({handleChange, value}) => {
             <TextField id="weatherInput"
             label="Enter city"
             variant="standard"
-            value={value}
             autoFocus
-            //onChange={(e) => handleChange(e.target.value)}
-            onChange={handleChange}
+            onChange={(e) => handleChange(e.target.value)}
             />
           </Box>
         </div>

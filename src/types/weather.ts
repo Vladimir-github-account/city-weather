@@ -1,6 +1,21 @@
-export interface ICoord {
-    lon: number,
-    lat: number
+export interface ICurrent{
+    dt: number,
+    sunrise?: number,
+    sunset?: number,
+    temp: number,
+    feels_like: number,
+    pressure: number,
+    humidity: number,
+    dew_point: number,
+    uvi: number,
+    clouds: number,
+    visibility: number,
+    wind_speed: number,
+    wind_deg: number,
+    wind_gust?: number,
+    weather: Array<IWeather>,
+    rain?: object,
+    pop?: number,
 }
 
 export interface IWeather {
@@ -10,47 +25,18 @@ export interface IWeather {
     icon: string
 }
 
-export interface IMain {
-    temp: number,
-    feels_like: number,
-    temp_min: number,
-    temp_max: number,
-    pressure: number,
-    humidity: number
-}
-
-export interface IWind {
-    speed: number,
-    deg: 350
-}
-
-export interface IClouds {
-    all: number
-}
-
-export interface ISys {
-    type: number,
-    id: number,
-    message: number,
-    country: string,
-    sunrise: number,
-    sunset: number,
-}
-
 export interface IWeatherResponse {
-    coord: ICoord,
-    weather: Array<IWeather>,
-    base: string,
-    main: IMain,
-    visibility: number,
-    wind: IWind,
-    clouds: IClouds,
-    dt: number,
-    sys: ISys,
-    timezone: number,
-    id: number,
+    lon: number,
+    lat: number,
     name: string,
-    cod: number
+    timezone: string,
+    timezone_offset: number,
+    current: ICurrent,
+    weather: Array<IWeather>,
+    minutely?: Array<object>,
+    hourly?: Array<ICurrent>,
+    daily?: Array<object>,
+    alerts: Array<object>,
 }
 
 export interface WeatherState {

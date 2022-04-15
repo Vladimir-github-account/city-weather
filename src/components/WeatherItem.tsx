@@ -2,21 +2,22 @@ import React, {FC} from 'react';
 import {IWeatherResponse} from "../types/weather";
 
 interface WeatherItemProps {
-    weatherResponse: any,
+    weatherResponse: IWeatherResponse,
 }
 
 const WeatherItem: FC<WeatherItemProps> = ({weatherResponse}) => {
     const {
-      lat, lon, current
+        lat, lon, current, name
     } = weatherResponse;
-    return (
-        <div>
+
+    return Object.keys(weatherResponse).length === 0
+        ? <h1>No data</h1>
+        : <div>
             <p>
-                {`City , temperature ${current?.temp}`}
+                City: {name} Temperature: {current?.temp}
             </p>
             <p>Coordinates {lat} {lon}</p>
         </div>
-    );
 };
 
 export default WeatherItem;
