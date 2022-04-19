@@ -34,7 +34,7 @@ export interface IWeatherResponse {
     current: ICurrent,
     weather: Array<IWeather>,
     minutely?: Array<object>,
-    hourly?: Array<ICurrent>,
+    hourly: Array<ICurrent>,
     daily?: Array<object>,
     alerts: Array<object>,
 }
