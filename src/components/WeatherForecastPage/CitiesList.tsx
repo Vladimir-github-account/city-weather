@@ -1,16 +1,12 @@
 import React, { FC }                          from 'react';
 import { ListItemButton, ListItemText, List } from '@mui/material';
+import { citiesListStyles }                   from '../styles';
 
 const CitiesList: FC = () => {
 	return (
 		<List
 			disablePadding
-			sx={{
-				fontSize: '22px',
-				display: 'flex',
-				flexDirection: 'column',
-				height: '100%'
-			}}>
+			sx={citiesListStyles}>
 			<ListItemButton component="a" href="#simple-list">
 				<ListItemText className="mt-4" primaryTypographyProps={{ variant: 'h5' }} primary="New York"/>
 			</ListItemButton>

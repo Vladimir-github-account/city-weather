@@ -48,3 +48,9 @@ export interface WeatherState {
 	isLoading: boolean;
 	error: string;
 }
+
+export enum weatherMainEnum {
+	RAIN = 'Rain',
+	CLOUDS = 'Clouds',
+	CLEAR = 'Clear',
+}
