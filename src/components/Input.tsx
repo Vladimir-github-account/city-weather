@@ -1,7 +1,6 @@
-import React, { FC }    from 'react';
-import TextField        from '@mui/material/TextField';
-import Box              from '@mui/material/Box';
-import LocationCityIcon from '@mui/icons-material/LocationCity';
+import React, { FC } from 'react';
+import TextField     from '@mui/material/TextField';
+import Box           from '@mui/material/Box';
 
 interface InputProps {
 	handleChange: any;
@@ -9,17 +8,22 @@ interface InputProps {
 
 const Input: FC<InputProps> = ({ handleChange }) => {
 	return (
-		<div>
-			<Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-				<LocationCityIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }}/>
-				<TextField id="weatherInput"
-				           label="Enter city"
-				           variant="standard"
-				           autoFocus
-				           onChange={(e) => handleChange(e.target.value)}
-				/>
-			</Box>
-		</div>
+		<Box className="flex items-end mb-8 text-gray-500">
+			<TextField
+				id="weatherInput"
+				label="Enter city"
+				variant="standard"
+				autoFocus
+				fullWidth
+				sx={{
+					'& .MuiInputLabel-root': { color: 'rgb(107 114 128)', fontSize: '20px' },
+					'& .MuiInput-root': { padding: '2px' },
+					'& .MuiInput-root::after': { borderBottomColor: 'rgb(176,146,120)' },
+					'& .MuiInput-underline:before': { borderBottomColor: 'rgb(107 114 128)', opacity: '0.8' },
+					'& .MuiInputBase-input': { color: 'white', fontSize: '20px' }
+				}}
+				onChange={(e) => handleChange(e.target.value)}/>
+		</Box>
 	);
 };
 

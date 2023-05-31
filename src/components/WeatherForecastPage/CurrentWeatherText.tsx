@@ -34,4 +34,3 @@ const CurrentWeatherText: FC<WeatherItemProps> = ({ weatherResponse }) => {
 };
 
 export default CurrentWeatherText;
-;

@@ -1,8 +1,7 @@
 import React, { FC, useCallback, useRef } from 'react';
 import { fetchWeather }                   from '../../store/action-creators/ActionCreators';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { useAppDispatch }                 from '../../hooks/redux';
 import Input                              from '../Input';
-import { Box }                            from '@mui/material';
 
 const WeatherLoading: FC = () => {
 	const dispatch = useAppDispatch();
@@ -25,9 +24,7 @@ const WeatherLoading: FC = () => {
 		dispatch(fetchWeather(value));
 	}, 1200);
 	return (
-		<Box className="px-14 pt-14 pb-14 flex flex-col ">
-			<Input handleChange={handleChange}/>
-		</Box>
+		<Input handleChange={handleChange}/>
 	);
 };
 
