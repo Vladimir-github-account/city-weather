@@ -54,3 +54,8 @@ export enum weatherMainEnum {
 	CLOUDS = 'Clouds',
 	CLEAR = 'Clear',
 }
+
+export interface INavbarItems {
+	readonly id: number;
+	readonly primary: string;
+}

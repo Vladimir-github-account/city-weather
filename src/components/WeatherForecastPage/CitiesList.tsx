@@ -1,27 +1,25 @@
 import React, { FC }                          from 'react';
 import { ListItemButton, ListItemText, List } from '@mui/material';
 import { citiesListStyles }                   from '../styles';
+import { navbarItems }                        from '../../constants/navbaritems';
+import { useAppDispatch }                     from '../../hooks/redux';
+import { fetchWeather }                       from '../../store/action-creators/ActionCreators';
 
 const CitiesList: FC = () => {
+	const dispatch = useAppDispatch();
+
+	const handleClick = (value: string) => {
+		return async () => {
+			dispatch(fetchWeather(value));
+		};
+	};
 	return (
-		<List
-			disablePadding
-			sx={citiesListStyles}>
-			<ListItemButton component="a" href="#simple-list">
-				<ListItemText className="mt-4" primaryTypographyProps={{ variant: 'h5' }} primary="New York"/>
-			</ListItemButton>
-			<ListItemButton component="a" href="#simple-list">
-				<ListItemText primaryTypographyProps={{ variant: 'h5' }} primary="California"/>
-			</ListItemButton>
-			<ListItemButton component="a" href="#simple-list">
-				<ListItemText primaryTypographyProps={{ variant: 'h5' }} primary="Manchester"/>
-			</ListItemButton>
-			<ListItemButton component="a" href="#simple-list">
-				<ListItemText primaryTypographyProps={{ variant: 'h5' }} primary="Birmingham"/>
-			</ListItemButton>
-			<ListItemButton component="a" href="#simple-list">
-				<ListItemText primaryTypographyProps={{ variant: 'h5' }} primary="Liverpool"/>
-			</ListItemButton>
+		<List disablePadding sx={citiesListStyles}>
+			{navbarItems.map(el => (
+				<ListItemButton component="li" onClick={handleClick(el.primary)}>
+					<ListItemText primaryTypographyProps={{ variant: 'h5' }} primary={el.primary}/>
+				</ListItemButton>
+			))}
 		</List>
 	);
 };
