@@ -18,7 +18,7 @@ const InformationBlock: FC = () => {
 			<Box className="h-1/2 flex flex-col justify-between">
 				{isWeatherLoaded &&
 					<WeatherDetails weatherResponse={weather}/>}
-				<hr className="border-b-1 opacity-40"/>
+				<hr className={`border-b-1 opacity-40 ${!isWeatherLoaded && 'mt-auto'}`}/>
 			</Box>
 		</Box>
 	);

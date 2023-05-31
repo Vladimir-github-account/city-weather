@@ -1,7 +1,7 @@
 import React, { FC }        from 'react';
 import { IWeatherResponse } from '../../types/weather';
 import { Box, Typography }  from '@mui/material';
-import moment               from 'moment';
+import moment               from 'moment-timezone';
 
 interface WeatherItemProps {
 	weatherResponse: IWeatherResponse,
@@ -9,7 +9,7 @@ interface WeatherItemProps {
 
 const CurrentWeatherText: FC<WeatherItemProps> = ({ weatherResponse }) => {
 	const {
-		current, name
+		current, name, timezone
 	} = weatherResponse;
 	return Object.keys(weatherResponse).length === 0
 	       ? <p></p>
@@ -20,7 +20,7 @@ const CurrentWeatherText: FC<WeatherItemProps> = ({ weatherResponse }) => {
 		       </Box>
 		       <Box className="flex flex-col align-end justify-end mr-4 h-full">
 			       <Typography component="span" variant="h2" fontWeight="500">{name}</Typography>
-			       <Typography variant="body1"> {moment().format('h:mm a, dddd, MMM Do \'YY')}</Typography>
+			       <Typography variant="body1"> {moment().tz(timezone).format('h:mm a, dddd, MMM Do \'YY')}</Typography>
 		       </Box>
 		       <Box className="flex flex-col justify-space-between text-center">
 			       <img className="w-20 relative top-2 scale-110 mx-auto"
