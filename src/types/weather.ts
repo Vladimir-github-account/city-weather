@@ -55,7 +55,7 @@ export enum weatherMainEnum {
 	CLEAR = 'Clear',
 }
 
-export interface INavbarItems {
+export interface ICitiesListItems {
 	readonly id: number;
 	readonly primary: string;
 }
