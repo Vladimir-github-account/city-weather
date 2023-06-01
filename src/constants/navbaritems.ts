@@ -1,24 +1,24 @@
-import { INavbarItems } from '../types/weather';
+import { ICitiesListItems } from '../types/weather';
 
-export const navbarItems: Array<INavbarItems> = [
-	{
-		id: 0,
-		primary: 'New York'
-	},
+export const navbarItems: Array<ICitiesListItems> = [
 	{
 		id: 1,
-		primary: 'California'
+		primary: 'Paris'
 	},
 	{
 		id: 2,
-		primary: 'Manchester'
+		primary: 'California'
 	},
 	{
 		id: 3,
-		primary: 'Birmingham'
+		primary: 'Manchester'
 	},
 	{
 		id: 4,
+		primary: 'Birmingham'
+	},
+	{
+		id: 5,
 		primary: 'London'
 	},
 ];
