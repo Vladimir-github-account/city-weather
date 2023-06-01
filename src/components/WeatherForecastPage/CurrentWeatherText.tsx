@@ -14,21 +14,33 @@ const CurrentWeatherText: FC<WeatherItemProps> = ({ weatherResponse }) => {
 	return Object.keys(weatherResponse).length === 0
 	       ? <p></p>
 	       :
-	       <Box className="mt-auto mb-36 ml-32 drop-shadow-2xl flex justify-start items-end">
-		       <Box className="text-9xl mr-2 relative top-2 font-bold" component="span">
-			       {Math.floor(current?.temp)}°
-		       </Box>
-		       <Box className="flex flex-col align-end justify-end mr-4 h-full">
-			       <Typography component="span" variant="h2" fontWeight="500">{name}</Typography>
-			       <Typography variant="body1"> {moment().tz(timezone).format('h:mm a, dddd, MMM Do \'YY')}</Typography>
-		       </Box>
-		       <Box className="flex flex-col justify-space-between text-center">
-			       <img className="w-20 relative top-2 scale-110 mx-auto"
-			            src={`http://openweathermap.org/img/wn/${current?.weather[0]?.icon}.png`}
-			            alt="img"/>
-			       <Typography variant="body1" sx={{ '&:first-letter': { textTransform: 'capitalize' } }}>
-				       {current?.weather[0]?.description}
-			       </Typography>
+	       <Box className="w-full mt-auto drop-shadow-2xl flex">
+		       <Box className="flex mb-24 2xl:mb-36 ml-3 lg:ml-16 2xl:ml-36 md:max-xl:flex-col justify-start items-start xl:items-end">
+			       <Box className="text-9xl mr-2 relative top-4 font-bold"
+			            component="span">
+				       {Math.floor(current?.temp)}°
+			       </Box>
+			       <Box className="flex no-wrap w-full items-end">
+				       <Box className="flex flex-col align-end justify-end md:max-lg:max-w-85 w-full mr-2 xl:mr-4 h-full">
+					       <Typography whiteSpace="nowrap"
+					                   overflow="hidden"
+					                   textOverflow="ellipsis"
+					                   component="span"
+					                   variant="h3"
+					                   fontWeight="500">
+						       {name}
+					       </Typography>
+					       <Typography noWrap variant="body1"> {moment().tz(timezone).format('h:mm a, dddd, MMM Do \'YY')}</Typography>
+				       </Box>
+				       <Box className="flex flex-col justify-space-between text-center">
+					       <img className="w-16 xl:w-20 relative top-2 scale-110 mx-auto"
+					            src={`http://openweathermap.org/img/wn/${current?.weather[0]?.icon}.png`}
+					            alt="img"/>
+					       <Typography noWrap variant="body1" sx={{ '&:first-letter': { textTransform: 'capitalize' } }}>
+						       {current?.weather[0]?.description}
+					       </Typography>
+				       </Box>
+			       </Box>
 		       </Box>
 	       </Box>;
 };

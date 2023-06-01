@@ -24,7 +24,7 @@ const CurrentWeather = () => {
 	const BGImageNumber = Object.keys(weather).length ? getBGImageNumber(weather?.current?.weather[0]?.main) : 0;
 	return (
 		<Box sx={{ ...currentWeatherContainerStyles, backgroundImage: `url(./${BGImageNumber}.jpg)`, }}>
-			<Box className="w-10/12 min-h-screen flex flex-col">
+			<Box className="w-3/5 min-h-screen flex flex-col">
 				{isLoading
 				 ? <div>Loading...</div>
 				 : error

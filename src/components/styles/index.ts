@@ -2,11 +2,11 @@ export const currentWeatherContainerStyles = {
 	display: 'flex',
 	width: '100%',
 	height: '100vh',
-	justifyContent: 'space-between',
 	backgroundPosition: 'center',
 	backgroundSize: 'cover',
 	backgroundRepeat: 'no-repeat',
-	color: 'rgb(255, 255, 255)'
+	color: 'rgb(255, 255, 255)',
+	overflow: 'hidden'
 };
 
 export const inputStyles = {
