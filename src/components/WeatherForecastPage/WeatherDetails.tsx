@@ -12,7 +12,7 @@ const WeatherDetails: FC<WeatherItemProps> = ({ weatherResponse }) => {
 	const str = current?.weather[0]?.main.toLowerCase();
 	return (
 		<>
-			<Typography mb="24px" component="h2" variant="h6" color="white">Weather details</Typography>
+			<Typography mb={{ xs: '18px', sm: '24px' }} component="h2" variant="h6" color="white">Weather details</Typography>
 			<List>
 				<ListItem disablePadding className="mb-6">
 					<ListItemText primaryTypographyProps={{ variant: 'h6' }}>

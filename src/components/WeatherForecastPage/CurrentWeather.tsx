@@ -4,7 +4,6 @@ import CurrentWeatherText                from './CurrentWeatherText';
 import { Box }                           from '@mui/material';
 import InformationBlock                  from './InformationBlock';
 import { weatherMainEnum }               from '../../types/weather';
-import { currentWeatherContainerStyles } from '../styles';
 
 function getBGImageNumber(currentWeather: string) {
 	switch (currentWeather) {
@@ -23,8 +22,13 @@ const CurrentWeather = () => {
 	const { weather, isLoading, error } = useAppSelector(state => state.weatherReducer);
 	const BGImageNumber = Object.keys(weather).length ? getBGImageNumber(weather?.current?.weather[0]?.main) : 0;
 	return (
-		<Box sx={{ ...currentWeatherContainerStyles, backgroundImage: `url(./${BGImageNumber}.jpg)`, }}>
-			<Box className="w-3/5 min-h-screen flex flex-col">
+		<Box
+			className="flex flex-col md:flex-row w-full h-screen bg-center bg-cover bg-no-repeat text-white overflow-x-hidden"
+			sx={{ backgroundImage: {
+				xs: `url(./${BGImageNumber}-mobile.jpg)`,
+				md: `url(./${BGImageNumber}.jpg)`
+				}, }}>
+			<Box className="w-full md:w-3/5 min-h-screen flex flex-col">
 				{isLoading
 				 ? <div>Loading...</div>
 				 : error

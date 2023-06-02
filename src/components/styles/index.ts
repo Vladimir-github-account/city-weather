@@ -1,15 +1,3 @@
-export const currentWeatherContainerStyles = {
-	display: 'flex',
-	width: '100%',
-	height: '100vh',
-	backgroundPosition: 'center',
-	backgroundSize: 'cover',
-	backgroundRepeat: 'no-repeat',
-	color: 'rgb(255, 255, 255)',
-	overflowX: 'hidden',
-	overflowY: 'visible',
-};
-
 export const inputStyles = {
 	'& .MuiInputLabel-root': { color: 'rgb(107 114 128)', fontSize: '20px' },
 	'& .MuiInput-root': { padding: '2px' },

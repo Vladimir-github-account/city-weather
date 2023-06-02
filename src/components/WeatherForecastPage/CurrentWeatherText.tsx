@@ -14,9 +14,10 @@ const CurrentWeatherText: FC<WeatherItemProps> = ({ weatherResponse }) => {
 	return Object.keys(weatherResponse).length === 0
 	       ? <p></p>
 	       :
-	       <Box className="fixed bottom-0 w-full mt-auto drop-shadow-2xl flex">
-		       <Box className=" flex mb-24 2xl:mb-36 ml-3 lg:ml-16 2xl:ml-36 md:max-xl:flex-col justify-start items-start xl:items-end">
-			       <Box className="text-9xl mr-2 relative top-4 font-bold"
+	       <Box className="md:fixed md:bottom-0 w-full mt-auto drop-shadow-2xl flex">
+		       <Box
+			       className="flex mb-8 md:mb-16 xl:mb-24 2xl:mb-36 ml-5 lg:ml-16 2xl:ml-36 flex-col xl:flex-row justify-start items-start xl:items-end">
+			       <Box className="text-8xl sm:text-9xl mr-2 relative top-3 font-bold"
 			            component="span">
 				       {Math.floor(current?.temp)}°
 			       </Box>
@@ -26,13 +27,13 @@ const CurrentWeatherText: FC<WeatherItemProps> = ({ weatherResponse }) => {
 					                   overflow="hidden"
 					                   textOverflow="ellipsis"
 					                   component="span"
-					                   variant="h3"
-					                   fontWeight="500">
+					                   fontWeight="500"
+					                   sx={{ typography: { sm: 'h3', xs: 'h4' } }}>
 						       {name}
 					       </Typography>
 					       <Typography noWrap variant="body1"> {moment().tz(timezone).format('h:mm a, dddd, MMM Do \'YY')}</Typography>
 				       </Box>
-				       <Box className="flex flex-col justify-space-between text-center">
+				       <Box className="flex flex-col justify-space-between text-center hidden sm:block">
 					       <img className="w-16 xl:w-20 relative top-2 scale-110 mx-auto"
 					            src={`http://openweathermap.org/img/wn/${current?.weather[0]?.icon}.png`}
 					            alt="img"/>
