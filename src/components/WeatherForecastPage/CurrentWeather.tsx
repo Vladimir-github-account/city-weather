@@ -5,6 +5,7 @@ import { Box }             from '@mui/material';
 import InformationBlock    from './InformationBlock';
 import { weatherMainEnum } from '../../types/weather';
 import SearchButton        from './SearchButton';
+import { MagnifyingGlass } from 'react-loader-spinner';
 
 function getBGImageNumber(currentWeather: string) {
 	switch (currentWeather) {
@@ -20,7 +21,7 @@ function getBGImageNumber(currentWeather: string) {
 }
 
 const CurrentWeather = () => {
-	const { weather, isLoading, error } = useAppSelector(state => state.weatherReducer);
+	const { weather, isLoading } = useAppSelector(state => state.weatherReducer);
 	const BGImageNumber = Object.keys(weather).length ? getBGImageNumber(weather?.current?.weather[0]?.main) : 0;
 	const ref = useRef<HTMLInputElement | HTMLTextAreaElement>(null);
 	const handleClick = () => {
@@ -37,10 +38,19 @@ const CurrentWeather = () => {
 			}}>
 			<Box className="w-full md:w-3/5 min-h-screen flex flex-col">
 				{isLoading
-				 ? <div>Loading...</div>
-				 : error
-				   ? <h1>{error}</h1>
-				   : <CurrentWeatherText weatherResponse={weather}/>
+				 ? <Box className="flex justify-center items-end mb-8 md:mb-16 xl:mb-24 2xl:mb-36 w-full h-screen">
+					 <MagnifyingGlass
+						 visible={true}
+						 height="130"
+						 width="130"
+						 ariaLabel="MagnifyingGlass-loading"
+						 wrapperStyle={{}}
+						 wrapperClass="MagnifyingGlass-wrapper"
+						 glassColor="#c0efff"
+						 color="#e15b64"
+					 />
+				 </Box>
+				 : Object.keys(weather).length > 0 && <CurrentWeatherText weatherResponse={weather}/>
 				}
 			</Box>
 			<InformationBlock inputRef={ref}/>
