@@ -1,9 +1,13 @@
-import React, { FC, useCallback, useRef } from 'react';
-import { fetchWeather }                   from '../../store/action-creators/ActionCreators';
+import React, { FC, Ref, useCallback, useRef } from 'react';
+import { fetchWeather }                        from '../../store/action-creators/ActionCreators';
 import { useAppDispatch }                 from '../../hooks/redux';
 import Input                              from '../Input';
 
-const WeatherLoading: FC = () => {
+interface WeatherLoadingProps {
+	inputRef: Ref<any>;
+}
+
+const WeatherLoading: FC<WeatherLoadingProps> = ({inputRef}) => {
 	const dispatch = useAppDispatch();
 
 	function useDebounce(callback: Function, delay: number) {
@@ -21,10 +25,12 @@ const WeatherLoading: FC = () => {
 	}
 
 	const handleChange = useDebounce(async (value: string) => {
-		dispatch(fetchWeather(value));
+		if (value.length > 2) {
+			dispatch(fetchWeather(value));
+		}
 	}, 1200);
 	return (
-		<Input handleChange={handleChange}/>
+		<Input handleChange={handleChange} inputRef={inputRef}/>
 	);
 };
 
