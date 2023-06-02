@@ -14,8 +14,8 @@ const CurrentWeatherText: FC<WeatherItemProps> = ({ weatherResponse }) => {
 	return Object.keys(weatherResponse).length === 0
 	       ? <p></p>
 	       :
-	       <Box className="w-full mt-auto drop-shadow-2xl flex">
-		       <Box className="flex mb-24 2xl:mb-36 ml-3 lg:ml-16 2xl:ml-36 md:max-xl:flex-col justify-start items-start xl:items-end">
+	       <Box className="fixed bottom-0 w-full mt-auto drop-shadow-2xl flex">
+		       <Box className=" flex mb-24 2xl:mb-36 ml-3 lg:ml-16 2xl:ml-36 md:max-xl:flex-col justify-start items-start xl:items-end">
 			       <Box className="text-9xl mr-2 relative top-4 font-bold"
 			            component="span">
 				       {Math.floor(current?.temp)}°

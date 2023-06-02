@@ -6,7 +6,8 @@ export const currentWeatherContainerStyles = {
 	backgroundSize: 'cover',
 	backgroundRepeat: 'no-repeat',
 	color: 'rgb(255, 255, 255)',
-	overflow: 'hidden'
+	overflowX: 'hidden',
+	overflowY: 'visible',
 };
 
 export const inputStyles = {

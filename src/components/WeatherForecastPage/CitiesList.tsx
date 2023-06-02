@@ -49,7 +49,7 @@ const CitiesList: FC<CitiesListProps> = ({ weather }) => {
 		<List disablePadding sx={citiesListStyles}>
 			{listItems.map((el, index) => (
 				<ListItemButton component="li" onClick={handleClick(el.primary)} key={el.id}>
-					<ListItemText primaryTypographyProps={{ variant: 'h5' }} primary={el.primary}/>
+					<ListItemText primaryTypographyProps={{ variant: 'h6' }} primary={el.primary}/>
 				</ListItemButton>
 			))}
 		</List>

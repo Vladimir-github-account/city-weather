@@ -20,7 +20,7 @@ export const theme = createTheme({
 		MuiListItemButton: {
 			styleOverrides: {
 				root: {
-					padding: '12px 0 0 0',
+					padding: '0',
 					'& .MuiTouchRipple-root': {
 						display: 'none'
 					}

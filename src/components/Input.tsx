@@ -9,7 +9,7 @@ interface InputProps {
 
 const Input: FC<InputProps> = ({ handleChange }) => {
 	return (
-		<Box className="flex items-end mb-8 text-gray-500">
+		<Box className="flex items-end mb-2 lg:mb-8 text-gray-500">
 			<TextField
 				id="weatherInput"
 				label="Enter city"

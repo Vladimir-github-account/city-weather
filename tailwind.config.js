@@ -8,6 +8,9 @@ module.exports = {
       minWidth: {
         '2/5': '40%',
       },
+      minHeight: {
+        '800px': '800px'
+      }
     },
   },
   plugins: [],
