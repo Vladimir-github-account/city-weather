@@ -29,16 +29,16 @@ const CurrentWeather = () => {
 	};
 
 	return (
-		<Box className="flex relative flex-col md:flex-row w-full h-screen bg-center bg-cover bg-no-repeat text-white overflow-x-hidden scroll-smooth"
+		<Box className="flex relative flex-col md:flex-row w-full h-full bg-center bg-cover bg-no-repeat text-white overflow-x-hidden scroll-smooth"
 			sx={{
 				backgroundImage: {
 					xs: `url(./${BGImageNumber}-mobile.jpg)`,
 					md: `url(./${BGImageNumber}.jpg)`
 				}
 			}}>
-			<Box className="w-full md:w-3/5 min-h-screen flex flex-col">
+			<Box className="w-full md:w-3/5 min-h-full flex flex-col">
 				{isLoading
-				 ? <Box className="flex justify-center items-end mb-8 md:mb-16 xl:mb-24 2xl:mb-36 w-full h-screen">
+				 ? <Box className="flex justify-center items-end mb-8 md:mb-16 xl:mb-24 2xl:mb-36 w-full h-full">
 					 <MagnifyingGlass
 						 visible={true}
 						 height="130"

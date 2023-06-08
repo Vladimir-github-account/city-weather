@@ -14,7 +14,7 @@ const InformationBlock: FC<WeatherLoadingProps> = ({ inputRef }) => {
 	const isWeatherLoaded = Object.keys(weather).length > 0;
 
 	return (
-		<Box className="h-screen min-h-800px overflow-y-auto bg-black backdrop-blur-3xl bg-opacity-70 w-full md:min-w-2/5 md:w-2/5 p-8 sm:p-10 md:p-12 lg:p-14 flex flex-col justify-between text-gray-500">
+		<Box className="h-full min-h-800px overflow-y-auto bg-black md:backdrop-blur-3xl bg-opacity-80 md:bg-opacity-70 w-full md:min-w-2/5 md:w-2/5 p-8 sm:p-10 md:p-12 xl:px-16 2xl:px-20 flex flex-col justify-between text-gray-500">
 			<Box className="flex flex-col h-1/2 mb-7 md:mb-12 md:max-lg:mb-6">
 				<WeatherLoading inputRef={inputRef}/>
 				<CitiesList weather={weather}/>
