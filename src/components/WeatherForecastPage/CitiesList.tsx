@@ -20,6 +20,13 @@ const CitiesList: FC<CitiesListProps> = ({ weather }) => {
 	const [listItems, setListItems] = useState<Array<ICitiesListItems>>(navbarItems);
 
 	useEffect(() => {
+		const listItemsInStorage = JSON.parse(localStorage.getItem('citiesList') as string);
+		if (listItemsInStorage) {
+			setListItems(listItemsInStorage);
+		}
+	}, []);
+
+	useEffect(() => {
 		setListItems((prevState) => {
 			if (!weather.name) {
 				return prevState;
@@ -45,9 +52,13 @@ const CitiesList: FC<CitiesListProps> = ({ weather }) => {
 		});
 	}, [weather.name]);
 
+	useEffect(() => {
+		localStorage.setItem('citiesList', JSON.stringify(listItems));
+	}, [listItems]);
+
 	return (
 		<List disablePadding sx={citiesListStyles}>
-			{listItems.map((el, index) => (
+			{listItems.map(el => (
 				<ListItemButton component="li" onClick={handleClick(el.primary)} key={el.id}>
 					<ListItemText sx={{ '&:hover': { color: 'white' } }}
 					              primaryTypographyProps={{ variant: 'h6' }}
