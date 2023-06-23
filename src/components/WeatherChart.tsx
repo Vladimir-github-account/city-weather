@@ -1,13 +1,15 @@
-import React, { FC }        from 'react';
-import Paper                from '@mui/material/Paper';
+import React, { FC }               from 'react';
+import Paper                       from '@mui/material/Paper';
 import {
 	ArgumentAxis,
 	ValueAxis,
-	SplineSeries,
+	LineSeries,
 	Chart,
-}                           from '@devexpress/dx-react-chart-material-ui';
-import { ValueScale }       from '@devexpress/dx-react-chart';
-import { IWeatherResponse } from '../types/weather';
+}                                  from '@devexpress/dx-react-chart-material-ui';
+import { ValueScale }              from '@devexpress/dx-react-chart';
+import { IWeatherResponse }        from '../types/weather';
+import { Box, Typography }         from '@mui/material';
+import { weatherChartPaperStyles } from './styles';
 
 interface WeatherChartProps {
 	weatherResponse: IWeatherResponse,
@@ -17,19 +19,22 @@ const WeatherChart: FC<WeatherChartProps> = ({ weatherResponse }) => {
 	const { name, hourly } = weatherResponse;
 	return (
 		<>
-			{hourly && <Paper sx={{ width: 700 }}>
-				<Chart data={hourly}>
-					<ValueScale name="temp"/>
-					<ArgumentAxis/>
-					<ValueAxis scaleName="temp" showGrid={true} showLine={true} showTicks={true}/>
-					<SplineSeries
-						name={name}
-						valueField="temp"
-						argumentField="dt"
-						scaleName="temp"
-					/>
-				</Chart>
-			</Paper>}
+			<Typography mb={{ xs: '18px', lg: '14px' }} component="h2" variant="h6" color="white">Weather hourly</Typography>
+			<Box className="overflow-auto min-h-300px w-full flex items-center">
+				<Paper sx={weatherChartPaperStyles}>
+					<Chart data={hourly} height={300}>
+						<ValueScale name="temp"/>
+						<ArgumentAxis/>
+						<ValueAxis scaleName="temp" showGrid={false} showLine={true} showTicks={true}/>
+						<LineSeries
+							name={name}
+							valueField="temp"
+							argumentField="dt"
+							scaleName="temp"
+						/>
+					</Chart>
+				</Paper>
+			</Box>
 		</>
 	);
 };

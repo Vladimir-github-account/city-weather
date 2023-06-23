@@ -1,12 +1,8 @@
 import { createTheme } from '@mui/material/styles';
 
 declare module '@mui/material/styles' {
-	interface Theme {
-
-	}
-
-	interface ThemeOptions {
-
+	interface BreakpointOverrides {
+		desktop: true;
 	}
 }
 
@@ -18,6 +14,7 @@ export const theme = createTheme({
 			md: 768,
 			lg: 1024,
 			xl: 1280,
+			desktop: 1536
 		}
 	},
 	components: {
@@ -32,6 +29,15 @@ export const theme = createTheme({
 					padding: '0',
 					'& .MuiTouchRipple-root': {
 						display: 'none'
+					}
+				}
+			}
+		},
+		MuiPaper: {
+			styleOverrides: {
+				root: {
+					'& .Target-root': {
+						fill: 'rgba(255, 255, 255, 0.7)!important',
 					}
 				}
 			}
