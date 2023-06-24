@@ -20,7 +20,7 @@ const WeatherChart: FC<WeatherChartProps> = ({ weatherResponse }) => {
 	return (
 		<>
 			<Typography mb={{ xs: '18px', lg: '14px' }} component="h2" variant="h6" color="white">Weather hourly</Typography>
-			<Box className="overflow-auto min-h-300px w-full flex items-center">
+			<Box className="overflow-auto min-h-300px w-full flex items-center scrollbar">
 				<Paper sx={weatherChartPaperStyles}>
 					<Chart data={hourly} height={300}>
 						<ValueScale name="temp"/>

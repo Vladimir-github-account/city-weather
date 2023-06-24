@@ -1,6 +1,6 @@
 export const inputStyles = {
 	'& .MuiInputLabel-root': { color: 'rgb(107 114 128)', fontSize: '20px' },
-	'& .MuiInput-root': { padding: '2px', width: '68%' },
+	'& .MuiInput-root': { padding: '2px', width: '65%' },
 	'& .MuiInput-root::after': { borderBottomColor: 'rgb(255,255,255)' },
 	'& .MuiInput-underline:before': { borderBottomColor: 'rgb(107 114 128)', opacity: '0.8' },
 	'& .MuiInputBase-input': { color: 'white', fontSize: { xs: '18px', sm: '24px' } },
@@ -13,7 +13,8 @@ export const citiesListStyles = {
 	fontSize: '22px',
 	display: 'flex',
 	flexDirection: 'column',
-	height: '100%'
+	flexGrow: 1,
+	maxHeight: '330px',
 };
 
 export const iconButtonStyles = {
