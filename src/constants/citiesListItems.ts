@@ -1,6 +1,6 @@
 import { ICitiesListItems } from '../types/weather';
 
-export const navbarItems: Array<ICitiesListItems> = [
+export const citiesListItems: Array<ICitiesListItems> = [
 	{
 		id: 1,
 		primary: 'Paris'

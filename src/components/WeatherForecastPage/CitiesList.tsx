@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState }     from 'react';
 import { List, ListItemButton, ListItemText } from '@mui/material';
 import { citiesListStyles }                   from '../styles';
-import { navbarItems }                        from '../../constants/navbaritems';
+import { citiesListItems }                    from '../../constants/citiesListItems';
 import { useAppDispatch }                     from '../../hooks/redux';
 import { fetchWeather }                       from '../../store/action-creators/ActionCreators';
 import { ICitiesListItems, IWeatherResponse } from '../../types/weather';
@@ -17,7 +17,7 @@ const CitiesList: FC<CitiesListProps> = ({ weather }) => {
 			dispatch(fetchWeather(value));
 		};
 	};
-	const [listItems, setListItems] = useState<Array<ICitiesListItems>>(navbarItems);
+	const [listItems, setListItems] = useState<Array<ICitiesListItems>>(citiesListItems);
 
 	useEffect(() => {
 		const listItemsInStorage = JSON.parse(localStorage.getItem('citiesList') as string);

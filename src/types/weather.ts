@@ -3,7 +3,7 @@ interface IRain {
 }
 
 export interface ICurrent {
-	dt: number,
+	dt: number | string,
 	sunrise?: number,
 	sunset?: number,
 	temp: number,
