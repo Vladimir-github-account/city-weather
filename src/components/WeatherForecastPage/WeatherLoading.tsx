@@ -1,10 +1,10 @@
-import React, { FC, Ref, useCallback, useRef } from 'react';
-import { fetchWeather }                        from '../../store/action-creators/ActionCreators';
-import { useAppDispatch }                      from '../../hooks/redux';
-import Input                                   from '../Input';
+import React, { FC, RefObject, useCallback, useRef } from 'react';
+import { fetchWeather }                              from '../../store/action-creators/ActionCreators';
+import { useAppDispatch }                            from '../../hooks/redux';
+import Input                                         from '../Input';
 
 interface WeatherLoadingProps {
-	inputRef: Ref<any>;
+	inputRef: RefObject<HTMLInputElement | HTMLTextAreaElement>;
 }
 
 const WeatherLoading: FC<WeatherLoadingProps> = ({ inputRef }) => {

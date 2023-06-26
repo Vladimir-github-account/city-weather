@@ -1,13 +1,13 @@
-import React, { FC, Ref } from 'react';
-import { Box }            from '@mui/material';
-import WeatherLoading     from './WeatherLoading';
-import { useAppSelector } from '../../hooks/redux';
-import CitiesList         from './CitiesList';
-import WeatherData        from './WeatherData';
-import { BrowserRouter }  from 'react-router-dom';
+import React, { FC, RefObject } from 'react';
+import { Box }                  from '@mui/material';
+import WeatherLoading           from './WeatherLoading';
+import { useAppSelector }       from '../../hooks/redux';
+import CitiesList               from './CitiesList';
+import WeatherData              from './WeatherData';
+import { BrowserRouter }        from 'react-router-dom';
 
 interface WeatherLoadingProps {
-	inputRef: Ref<any>;
+	inputRef: RefObject<HTMLInputElement | HTMLTextAreaElement>;
 }
 
 const InformationBlock: FC<WeatherLoadingProps> = ({ inputRef }) => {

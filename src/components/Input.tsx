@@ -1,11 +1,11 @@
-import React, { FC, Ref } from 'react';
-import TextField          from '@mui/material/TextField';
-import Box                from '@mui/material/Box';
-import { inputStyles }    from './styles';
+import React, { FC, RefObject } from 'react';
+import TextField                from '@mui/material/TextField';
+import Box                      from '@mui/material/Box';
+import { inputStyles }          from './styles';
 
 interface InputProps {
-	handleChange: any;
-	inputRef: Ref<any>;
+	handleChange: Function;
+	inputRef: RefObject<HTMLInputElement | HTMLTextAreaElement>;
 }
 
 const Input: FC<InputProps> = ({ handleChange, inputRef }) => {
