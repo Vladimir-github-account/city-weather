@@ -1,19 +1,19 @@
 import React, { FC, useState } from 'react';
 import WeatherDetails          from './WeatherDetails';
-import { IWeatherResponse }    from '../../types/weather';
-import WeatherChart            from '../WeatherChart';
+import { IWeatherResponse }    from '../types/weather';
+import WeatherHourlyChart      from './WeatherHourlyChart';
 import { Route, Routes }       from 'react-router-dom';
 import { Box }                 from '@mui/material';
-import NavButton               from '../NavButton';
-import { navLinkItems }        from '../../constants';
+import NavButton               from './UI/NavButton';
+import { navLinkItems }        from '../constants';
 
-interface CitiesListProps {
+interface WeatherDataProps {
 	weather: IWeatherResponse;
 }
 
-const WeatherData: FC<CitiesListProps> = ({ weather }) => {
+const WeatherData: FC<WeatherDataProps> = ({ weather }) => {
 	const isWeatherLoaded = Object.keys(weather).length > 0;
-	const [navLink, setNavLink] = useState(navLinkItems[0]);
+	const [navLink, setNavLink] = useState(navLinkItems[1]);
 	const handleClick = () => {
 		const currentIndex = navLinkItems.indexOf(navLink);
 		const nextIndex = (currentIndex + 1) % navLinkItems.length;
@@ -24,7 +24,7 @@ const WeatherData: FC<CitiesListProps> = ({ weather }) => {
 			{isWeatherLoaded &&
 				<Routes>
 					<Route path="/" element={(<WeatherDetails weatherResponse={weather}/>)}/>
-					<Route path="/hourly" element={(<WeatherChart weatherResponse={weather}/>)}/>
+					<Route path="/hourly" element={(<WeatherHourlyChart weatherResponse={weather}/>)}/>
 				</Routes>}
 			<hr className={`border-b-1 opacity-40 ${!isWeatherLoaded && 'mt-auto'}`}/>
 			{isWeatherLoaded && <NavButton link={navLink} handleClick={handleClick}/>}

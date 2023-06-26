@@ -1,18 +1,19 @@
-import React, { FC }                                from 'react';
-import { List, ListItem, ListItemText, Typography } from '@mui/material';
-import { IWeatherResponse }                         from '../../types/weather';
+import React, { FC }                    from 'react';
+import { List, ListItem, ListItemText } from '@mui/material';
+import { IWeatherResponse }             from '../types/weather';
+import WeatherHeading                   from './UI/WeatherHeading';
 
-interface WeatherItemProps {
+interface WeatherDetailsProps {
 	weatherResponse: IWeatherResponse,
 }
 
-const WeatherDetails: FC<WeatherItemProps> = ({ weatherResponse }) => {
+const WeatherDetails: FC<WeatherDetailsProps> = ({ weatherResponse }) => {
 	const { current } = weatherResponse;
 	const weather: { [index: string]: any } = { ...current };
 	const str = current?.weather[0]?.main.toLowerCase();
 	return (
 		<>
-			<Typography mb={{ xs: '18px', sm: '24px' }} component="h2" variant="h6" color="white">Weather details</Typography>
+			<WeatherHeading heading={'Weather details'}/>
 			<List>
 				<ListItem disablePadding className="mb-6">
 					<ListItemText primaryTypographyProps={{ variant: 'h6' }}>

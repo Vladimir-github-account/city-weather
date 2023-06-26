@@ -1,13 +1,13 @@
 import React, { FC }        from 'react';
-import { IWeatherResponse } from '../../types/weather';
+import { IWeatherResponse } from '../types/weather';
 import { Box, Typography }  from '@mui/material';
 import moment               from 'moment-timezone';
 
-interface WeatherItemProps {
+interface CurrentWeatherProps {
 	weatherResponse: IWeatherResponse,
 }
 
-const CurrentWeatherText: FC<WeatherItemProps> = ({ weatherResponse }) => {
+const CurrentWeather: FC<CurrentWeatherProps> = ({ weatherResponse }) => {
 	const {
 		current, name, timezone
 	} = weatherResponse;
@@ -44,4 +44,4 @@ const CurrentWeatherText: FC<WeatherItemProps> = ({ weatherResponse }) => {
 		</Box>);
 };
 
-export default CurrentWeatherText;
+export default CurrentWeather;

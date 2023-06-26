@@ -1,7 +1,7 @@
 import React, { FC }        from 'react';
 import { Search }           from '@mui/icons-material';
 import { IconButton }       from '@mui/material';
-import { iconButtonStyles } from '../styles';
+import { iconButtonStyles } from './styles';
 
 interface SearchButtonProps {
 	handleClick: any;

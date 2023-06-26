@@ -1,15 +1,14 @@
 import React, { FC, RefObject, useCallback, useRef } from 'react';
-import { fetchWeather }                              from '../../store/action-creators/ActionCreators';
-import { useAppDispatch }                            from '../../hooks/redux';
-import Input                                         from '../Input';
+import { fetchWeather }                              from '../store/action-creators/ActionCreators';
+import { useAppDispatch }                            from '../hooks/redux';
+import Input                                         from './UI/Input';
 
-interface WeatherLoadingProps {
+interface SearchInputProps {
 	inputRef: RefObject<HTMLInputElement | HTMLTextAreaElement>;
 }
 
-const WeatherLoading: FC<WeatherLoadingProps> = ({ inputRef }) => {
+const SearchInput: FC<SearchInputProps> = ({ inputRef }) => {
 	const dispatch = useAppDispatch();
-
 	function useDebounce(callback: Function, delay: number) {
 		const timer: any = useRef(null);
 
@@ -34,4 +33,4 @@ const WeatherLoading: FC<WeatherLoadingProps> = ({ inputRef }) => {
 	);
 };
 
-export default WeatherLoading;
+export default SearchInput;

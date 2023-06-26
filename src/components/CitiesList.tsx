@@ -1,10 +1,10 @@
 import React, { FC, useEffect, useState }     from 'react';
 import { List, ListItemButton, ListItemText } from '@mui/material';
-import { citiesListStyles }                   from '../styles';
-import { citiesListItems }                    from '../../constants/citiesListItems';
-import { useAppDispatch }                     from '../../hooks/redux';
-import { fetchWeather }                       from '../../store/action-creators/ActionCreators';
-import { ICitiesListItems, IWeatherResponse } from '../../types/weather';
+import { citiesListStyles }                   from './styles';
+import { citiesListItems }                    from '../constants/citiesListItems';
+import { useAppDispatch }                     from '../hooks/redux';
+import { fetchWeather }                       from '../store/action-creators/ActionCreators';
+import { ICitiesListItems, IWeatherResponse } from '../types/weather';
 
 interface CitiesListProps {
 	weather: IWeatherResponse;

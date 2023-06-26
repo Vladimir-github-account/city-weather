@@ -1,7 +1,7 @@
 import React, { FC, RefObject } from 'react';
 import TextField                from '@mui/material/TextField';
 import Box                      from '@mui/material/Box';
-import { inputStyles }          from './styles';
+import { inputStyles }          from '../styles';
 
 interface InputProps {
 	handleChange: Function;
