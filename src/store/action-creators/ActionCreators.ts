@@ -1,7 +1,7 @@
-import { ICurrent, IWeatherResponse } from '../../types/weather';
-import axios                          from 'axios';
-import moment                         from 'moment-timezone';
-import { createAsyncThunk }           from '@reduxjs/toolkit';
+import { ICurrent, IDaily, IWeatherResponse } from '../../types/weather';
+import axios                                  from 'axios';
+import moment                                 from 'moment-timezone';
+import { createAsyncThunk }                   from '@reduxjs/toolkit';
 
 export const fetchWeather = createAsyncThunk<IWeatherResponse, string>(
 	'weather/fetchWeather',
@@ -17,6 +17,12 @@ export const fetchWeather = createAsyncThunk<IWeatherResponse, string>(
 			});
 			response.data.hourly = response.data.hourly.filter((el, index) => {
 				return index % 4 === 0;
+			});
+			response.data.daily?.shift();
+			response.data.daily = response.data.daily?.map((el: IDaily) => {
+				el.dt = moment.unix(Number(el.dt)).tz(response.data.timezone).format('ddd');
+				el.day_temp = el.temp.day;
+				return el;
 			});
 			return response.data;
 		} catch (e) {

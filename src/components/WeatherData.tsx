@@ -6,6 +6,7 @@ import { Route, Routes }       from 'react-router-dom';
 import { Box }                 from '@mui/material';
 import NavButton               from './UI/NavButton';
 import { navLinkItems }        from '../constants';
+import WeatherDailyChart       from './WeatherDailyChart';
 
 interface WeatherDataProps {
 	weather: IWeatherResponse;
@@ -25,6 +26,7 @@ const WeatherData: FC<WeatherDataProps> = ({ weather }) => {
 				<Routes>
 					<Route path="/" element={(<WeatherDetails weatherResponse={weather}/>)}/>
 					<Route path="/hourly" element={(<WeatherHourlyChart weatherResponse={weather}/>)}/>
+					<Route path="/daily" element={(<WeatherDailyChart weatherResponse={weather}/>)}/>
 				</Routes>}
 			<hr className={`border-b-1 opacity-40 ${!isWeatherLoaded && 'mt-auto'}`}/>
 			{isWeatherLoaded && <NavButton link={navLink} handleClick={handleClick}/>}

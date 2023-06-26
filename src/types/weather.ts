@@ -22,6 +22,16 @@ export interface ICurrent {
 	pop?: number,
 }
 
+export interface IDaily extends Omit<ICurrent, 'temp'> {
+	temp: {
+		      day: number,
+		      morn: number,
+		      eve: number,
+		      night: number
+	      },
+	day_temp: number,
+}
+
 export interface IWeather {
 	id: number,
 	main: string,
@@ -39,7 +49,7 @@ export interface IWeatherResponse {
 	weather: Array<IWeather>,
 	minutely?: Array<object>,
 	hourly: Array<ICurrent>,
-	daily?: Array<object>,
+	daily?: Array<IDaily>,
 	alerts: Array<object>,
 }
 

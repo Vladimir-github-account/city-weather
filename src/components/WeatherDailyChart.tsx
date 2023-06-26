@@ -7,26 +7,26 @@ import { Box }                                          from '@mui/material';
 import { weatherChartPaperStyles }                      from './styles';
 import WeatherHeading                                   from './UI/WeatherHeading';
 
-interface WeatherHourlyChartProps {
+interface WeatherDailyChartProps {
 	weatherResponse: IWeatherResponse,
 }
 
-const WeatherHourlyChart: FC<WeatherHourlyChartProps> = ({ weatherResponse }) => {
-	const { name, hourly } = weatherResponse;
+const WeatherDailyChart: FC<WeatherDailyChartProps> = ({ weatherResponse }) => {
+	const { name, daily } = weatherResponse;
 	return (
 		<>
-			<WeatherHeading heading={'Weather hourly'}/>
+			<WeatherHeading heading={'Weather daily'}/>
 			<Box className="overflow-auto min-h-300px w-full flex items-center scrollbar">
 				<Paper sx={weatherChartPaperStyles}>
-					<Chart data={hourly} height={300}>
-						<ValueScale name="temp"/>
+					<Chart data={daily} height={300}>
+						<ValueScale name="day_temp"/>
 						<ArgumentAxis/>
-						<ValueAxis scaleName="temp" showGrid={false} showLine={true} showTicks={true}/>
+						<ValueAxis scaleName="day_temp" showGrid={false} showLine={true} showTicks={true}/>
 						<SplineSeries
 							name={name}
-							valueField="temp"
+							valueField="day_temp"
 							argumentField="dt"
-							scaleName="temp"
+							scaleName="day_temp"
 						/>
 					</Chart>
 				</Paper>
@@ -35,4 +35,4 @@ const WeatherHourlyChart: FC<WeatherHourlyChartProps> = ({ weatherResponse }) =>
 	);
 };
 
-export default WeatherHourlyChart;
+export default WeatherDailyChart;
