@@ -1,1 +1,1 @@
-export const navLinkItems = ['', '/hourly', '/daily'];
+export const navLinkItems = ['/', '/hourly', '/daily'];
